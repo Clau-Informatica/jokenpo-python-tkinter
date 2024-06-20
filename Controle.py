@@ -14,7 +14,7 @@ class Controle:
             self.interactions,
             text=f'Escolha do jogador: {escolha}',
             font=('Arial', 16, 'bold'),
-            bg='#dfe3ee')
+            bg='#F5F5F5')
         self.escolha_usuario.place(relx=0.18, rely=0.1, relwidth=0.60)
 
     def criar_lbl_escolha_pc(self):
@@ -23,7 +23,7 @@ class Controle:
             self.interactions,
             text=f'Escolha da máquina: {self.pc}',
             font=('Arial', 16, 'bold'),
-            bg='#dfe3ee')
+            bg='#F5F5F5')
         self.escolhapc.place(relx=0.18, rely=0.27, relwidth=0.60)
 
     def criar_lbl_resultado(self):
@@ -32,7 +32,7 @@ class Controle:
             self.interactions,
             text=resultado,
             font=('Arial', 16, 'bold'),
-            bg='#dfe3ee',
+            bg='#F5F5F5',
             foreground=self.set_cor(self.cor))
         self.escolha_usuario.place(relx=0.18, rely=0.45, relwidth=0.55)
 
@@ -85,3 +85,12 @@ class Controle:
         self.set_cor('red')
         self.placar[1] += 1
         return 'Você Perdeu!!'
+
+    def zerar_placar(self, event):
+        self.placar = [0,0]
+        self.lbl_placar = Label(
+            self.interactions,
+            text=f'Jogador {self.placar[0]} x {self.placar[1]} Máquina',
+            font=('Arial', 16, 'bold'),
+            bg='#FFDEAD', )
+        self.lbl_placar.place(relx=0.20, rely=0.70, relwidth=0.55)
