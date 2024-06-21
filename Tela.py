@@ -2,7 +2,7 @@ from tkinter import *
 import base64
 from Imagens import Imagens
 from Controle import Controle
-import awesometkinter as atk
+import awesometkinter as atk  # Você deve instalar essa biblioteca com o PIP Install
 root = Tk()
 
 
