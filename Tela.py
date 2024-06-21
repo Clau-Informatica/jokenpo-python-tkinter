@@ -6,6 +6,7 @@ import awesometkinter as atk
 root = Tk()
 
 
+#  Criando a classe aplicação e inicializando os métodos
 class Application(Imagens, Controle):
     def __init__(self):
         self.root = root
@@ -16,7 +17,7 @@ class Application(Imagens, Controle):
         self.widgets_interactions()
         root.mainloop()
 
-    def tela(self):
+    def tela(self):  # Criação da Tela
         self.root.title('Pedra, Papel e Tesoura')
         self.root.configure(background='#FFDEAD')
         self.root.geometry('650x500')
@@ -27,20 +28,13 @@ class Application(Imagens, Controle):
         self.lbl_logo = Label(self.root, image=self.img_logo, background='#FFDEAD')
         self.lbl_logo.place(relx=0.10, rely=0.0, relwidth=0.80)
         # Botões no rodapé
-        self.bt_zerar_placar = Button(self.root,
-                                 text="Reiniciar",
-                                 background='#FFA500',
-                                 bd=2,
-                                 font=('arial', 11, 'bold'))
-        self.bt_zerar_placar.place(relx=0.35, rely=0.93, relwidth=0.15)
-        self.bt_sair = Button(self.root,
-                                      text="Sair",
-                                      background='#FFA500',
-                                      bd=2,
+        self.bt_zerar_placar = Button(self.root, text="Reiniciar", background='#FFA500', bd=2,
                                       font=('arial', 11, 'bold'))
+        self.bt_zerar_placar.place(relx=0.35, rely=0.93, relwidth=0.15)
+        self.bt_sair = Button(self.root, text="Sair", background='#FFA500', bd=2, font=('arial', 11, 'bold'))
         self.bt_sair.place(relx=0.51, rely=0.93, relwidth=0.15)
 
-    def frame_da_tela(self):
+    def frame_da_tela(self):  # Criando Frames para as opções e as interações
         self.options = Frame(self.root,
                              bd=4,
                              bg='#F5F5F5',
@@ -55,7 +49,7 @@ class Application(Imagens, Controle):
         self.interactions.place(relx=0.1, rely=0.57, relwidth=0.80, relheight=0.35)
 
     def widget_options(self):
-        self.lbl_option = Label(self.options,
+        self.lbl_option = Label(self.options,  # Label com texto
                                 text="Escolha sua opção: ",
                                 font=('Arial', 14, 'bold'),
                                 bg='#F5F5F5')
@@ -106,17 +100,15 @@ class Application(Imagens, Controle):
         #  Balão de mensagem
         atk.tooltip(self.bt_tesoura, 'A Tesoura ganha do Papel e perde pra Pedra.')
 
-    def widgets_interactions(self):
+    def widgets_interactions(self):  # Interações quando os botões forem clicados
         self.bt_pedra.bind("<1>", self.set_pedra)
         self.bt_papel.bind("<1>", self.set_papel)
         self.bt_tesoura.bind("<1>", self.set_tesoura)
         self.bt_zerar_placar.bind("<1>", self.zerar_placar)
         self.bt_sair.bind("<1>", self.encerrar)
 
-    def encerrar(self, event):
+    def encerrar(self, event):  # Evento para fechar o jogo
         self.root.destroy()
 
-
-
-
+#  Inicializar aplicação
 Application()
